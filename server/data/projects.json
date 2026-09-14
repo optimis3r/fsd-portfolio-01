@@ -1,0 +1,70 @@
+[
+  {
+    "id": "nsra",
+    "title": "NSRA: Neuro-Symbolic Register Allocator",
+    "shortDescription": "Engineered a Gradient Boosting model (92.3% F1-score) to optimize compiler register allocation, reducing memory operations by 2.9%.",
+    "detailedDescription": "NSRA bridges the gap between machine learning and traditional compiler backends. By introducing a hybrid neuro-symbolic approach, it accurately predicts spilled registers during instruction scheduling while retaining strict formal correctness guarantees.",
+    "techStack": [
+      "C++",
+      "Python",
+      "Scikit-Learn",
+      "PySide6",
+      "LLVM"
+    ],
+    "githubLink": "https://github.com/optimis3r/NSRA-Neuro-Symbolic-Register-Allocation",
+    "liveLink": "",
+    "category": "Compiler & Machine Learning",
+    "highlights": [
+      "Trained Gradient Boosting model achieving 92.3% F1-score on compiler benchmark suites.",
+      "Integrated automated formal verification layer ensuring 100% execution correctness.",
+      "Built a PySide6 dashboard for visual inspection of compiler register allocation."
+    ],
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "triage-oom",
+    "title": "TRIAGE-OOM: Predictive OOM Crash Prevention",
+    "shortDescription": "Real-time predictive monitoring service using eBPF memory telemetry to detect container crash risks before occurrence.",
+    "detailedDescription": "TRIAGE-OOM leverages low-overhead eBPF kernel probes to trace cgroup v2 memory allocations, page faults, and swap usage. When high OOM risk is detected, a proactive cgroup-freezer intervention is executed to preserve container state without kernel kills.",
+    "techStack": [
+      "Python",
+      "eBPF",
+      "cgroup v2",
+      "Scikit-Learn",
+      "ONNX Runtime",
+      "Docker"
+    ],
+    "githubLink": "https://github.com/optimis3r/TRIAGE-Predictive-OOM-Prevention",
+    "liveLink": "",
+    "category": "Systems & Cloud Infrastructure",
+    "highlights": [
+      "Achieved 0% false-positive rate across 4 production workload types (Postgres, Redis, Compute, Flask).",
+      "Low-overhead eBPF telemetry capturing page cache dynamics with <0.5% CPU overhead.",
+      "Automated cgroup-freezer intervention pausing at-risk containers before Linux OOM killer triggers."
+    ],
+    "image": "https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "dialect",
+    "title": "DIALECT: AI Debate & Public Speaking Platform",
+    "shortDescription": "Real-time debate platform supporting text, voice, and video sessions for 50+ concurrent users with AI feedback.",
+    "detailedDescription": "DIALECT is a full-stack platform designed to help users improve public speaking skills through competitive debates. Includes Elo-based matchmaking, real-time WebRTC media streaming, and an anonymous Ghost Mode for anxiety-free speaking practice.",
+    "techStack": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Socket.io",
+      "WebRTC",
+      "Express"
+    ],
+    "githubLink": "https://github.com/optimis3r/Dialect",
+    "liveLink": "",
+    "category": "Full-Stack & Real-Time Web",
+    "highlights": [
+      "Supports 50+ concurrent user debate rooms with real-time audio/video streaming via WebRTC.",
+      "Features Elo-based matchmaking algorithm for balanced competitive debate pairings.",
+      "Integrated AI feedback engine conducting sentiment analysis, filler word detection, and vocabulary scoring."
+    ],
+    "image": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80"
+  }
+]

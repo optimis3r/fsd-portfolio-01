@@ -1,0 +1,170 @@
+{
+  "info": {
+    "_postman_id": "8e3b62f1-6782-4117-91b4-2bcf8198f123",
+    "name": "NITW CS1303 - Assignment 3 Portfolio Backend API",
+    "description": "Postman collection covering all backend endpoints for Assignment 3 (CS1303 Full Stack Development, NIT Warangal). Includes positive test cases and validation failure cases.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "B1: Health Check (GET /)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        },
+        "description": "Returns status 200 confirming API server is operational."
+      },
+      "response": []
+    },
+    {
+      "name": "B2: Get All Projects (GET /api/projects)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/projects",
+          "host": ["{{base_url}}"],
+          "path": ["api", "projects"]
+        },
+        "description": "Returns status 200 with an array of all project objects with full schema."
+      },
+      "response": []
+    },
+    {
+      "name": "B3: Get Single Project - Valid ID (GET /api/projects/:id)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/projects/nsra",
+          "host": ["{{base_url}}"],
+          "path": ["api", "projects", "nsra"]
+        },
+        "description": "Returns status 200 with matching project object."
+      },
+      "response": []
+    },
+    {
+      "name": "B3: Get Single Project - 404 Not Found (GET /api/projects/:id)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/projects/unknown-project-id",
+          "host": ["{{base_url}}"],
+          "path": ["api", "projects", "unknown-project-id"]
+        },
+        "description": "Returns status 404 with JSON error { \"error\": \"Project not found\" }."
+      },
+      "response": []
+    },
+    {
+      "name": "B4: Submit Contact - Success (POST /api/contact)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test@test.com\",\n  \"message\": \"test\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contact",
+          "host": ["{{base_url}}"],
+          "path": ["api", "contact"]
+        },
+        "description": "Returns status 201 with confirmed submission object and persists to storage."
+      },
+      "response": []
+    },
+    {
+      "name": "B4: Submit Contact - Missing Name (POST /api/contact)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"\",\n  \"email\": \"test@test.com\",\n  \"message\": \"test\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contact",
+          "host": ["{{base_url}}"],
+          "path": ["api", "contact"]
+        },
+        "description": "Returns status 400 with { \"error\": \"Name is required\" }."
+      },
+      "response": []
+    },
+    {
+      "name": "B4: Submit Contact - Invalid Email (POST /api/contact)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test\",\n  \"message\": \"test\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contact",
+          "host": ["{{base_url}}"],
+          "path": ["api", "contact"]
+        },
+        "description": "Returns status 400 with { \"error\": \"Invalid email address format\" }."
+      },
+      "response": []
+    },
+    {
+      "name": "B5: List Contact Submissions (GET /api/contact)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/contact",
+          "host": ["{{base_url}}"],
+          "path": ["api", "contact"]
+        },
+        "description": "Open endpoint returning status 200 with an array of all stored submissions for evaluation."
+      },
+      "response": []
+    },
+    {
+      "name": "B6: Undefined Route - 404 (GET /api/doesnotexist)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/doesnotexist",
+          "host": ["{{base_url}}"],
+          "path": ["api", "doesnotexist"]
+        },
+        "description": "Returns status 404 with JSON { \"error\": \"Route not found\" }."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}
